@@ -58,7 +58,17 @@ namespace CsharpLibrary.Controllers
     }
     private void ReadBook()
     {
-      throw new NotImplementedException();
+      Console.WriteLine(_Service.GetAllBooks());
+      Console.WriteLine("\nWhich book would you like to read?");
+      string selectionStr = Console.ReadLine();
+      if (int.TryParse(selectionStr, out int selection) && selection > 0)
+      {
+        Console.WriteLine(_Service.ReadBook(selection - 1));
+      }
+      else
+      {
+        Console.WriteLine("Invalid Number: Selection must be a number greater than 0");
+      }
     }
     private void CheckoutBook()
     {

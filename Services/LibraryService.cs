@@ -31,6 +31,35 @@ namespace CsharpLibrary.Services
 
     }
 
+    public string GetAllBooks()
+    {
+      string list = "\n ****************** \n";
+      if (Books.Count != 0)
+      {
+        for (int i = 0; i < Books.Count; i++)
+        {
+          var book = Books[i];
+          list += $"{i + 1}. {book.Title} - by {book.Author}\n";
+        }
+        return list;
+      }
+      else
+      {
+        return "\nNo Books.";
+      }
+
+    }
+
+
+    internal string ReadBook(int v)
+    {
+      if (v < Books.Count)
+      {
+        return "\n" + Books[v].Description + "\n";
+      }
+      Console.Clear();
+      return "\nInvalid Input, no such book.\n";
+    }
 
     internal string Checkout(int v)
     {
@@ -76,6 +105,7 @@ namespace CsharpLibrary.Services
         }
       }
     }
+
 
     internal void AddBook()
     {
