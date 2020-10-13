@@ -46,6 +46,7 @@ namespace CsharpLibrary.Controllers
           Console.WriteLine("\nGoodbye");
           break;
         default:
+          Console.Clear();
           Console.WriteLine("\nInvalid Input Try Again");
           break;
       }

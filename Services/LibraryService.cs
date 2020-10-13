@@ -9,7 +9,7 @@ namespace CsharpLibrary.Services
 
     public string GetBooks(bool available)
     {
-      string list = "\n";
+      string list = "\n ****************** \n";
       for (int i = 0; i < Books.Count; i++)
       {
         var book = Books[i];
