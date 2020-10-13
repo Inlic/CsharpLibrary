@@ -54,7 +54,7 @@ namespace CsharpLibrary.Controllers
 
     private void AddBook()
     {
-      throw new NotImplementedException();
+      _Service.AddBook();
     }
     private void ReadBook()
     {

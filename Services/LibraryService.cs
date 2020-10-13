@@ -55,12 +55,26 @@ namespace CsharpLibrary.Services
       return "\nInvalid Input, no such book.\n";
     }
 
+    internal void AddBook()
+    {
+      Console.Clear();
+      Console.WriteLine("\nTitle of the Book you wish to Add");
+      string title = Console.ReadLine();
+      Console.WriteLine("\nAuthor of the Book you wish to Add");
+      string author = Console.ReadLine();
+      Console.WriteLine("\nDescription for the Book you wish to Add");
+      string description = Console.ReadLine();
+      Books.Add(new Book(title, author, description, true));
+      Console.Clear();
+      Console.WriteLine($"\nBook {title} Added");
+    }
+
     public LibraryService()
     {
       Books = new List<Book>();
       Books.Add(new Book("Bear", "Marian Engel", "The story of a 27-year-old, lonely, woman who, alone on an island, discovers an obssessive passion.", false));
       Books.Add(new Book("1Q84", "Haruki Murakami", "A young woman named Aomame follows a taxi driver's enigmatic suggestion and begins to notice puzzling discrepencies in the world around her.", true));
-      Books.Add(new Book("Night Watch", "Terry Pratchett", "Commander Sam Vimes of the Ankh-Morpork City Watch had it all. But now he's back in his own rough, touch past without even the clothes he was in when the lightning struck.", true));
+      Books.Add(new Book("Night Watch", "Terry Pratchett", "Commander Sam Vimes of the Ankh-Morpork City Watch had it all. But now he's back in his own rough, tough past without even the clothes he was in when the lightning struck.", true));
       Books.Add(new Book("Dune", "Frank Herbert", "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man knwon as Maud'dib.  He would avenge the traitorous plot against his noble family - and would bring to fruition humankind's most ancient and unattainable dream.", true));
     }
 
