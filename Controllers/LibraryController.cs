@@ -5,7 +5,7 @@ namespace CsharpLibrary.Controllers
 {
   class LibraryController
   {
-
+    private LibraryService _Service { get; set; } = new LibraryService();
     private bool _running { get; set; }
 
     public string input { get; set; }
@@ -62,12 +62,32 @@ namespace CsharpLibrary.Controllers
     }
     private void CheckoutBook()
     {
-      Console.WriteLine(new LibraryService().GetBooks(true));
+      Console.WriteLine(_Service.GetBooks(true));
+      Console.WriteLine("\nWhich book would you like to checkout?");
+      string selectionStr = Console.ReadLine();
+      if (int.TryParse(selectionStr, out int selection) && selection > 0)
+      {
+        Console.WriteLine(_Service.Checkout(selection - 1));
+      }
+      else
+      {
+        Console.WriteLine("Invalid Number: Selection must be a number greater than 0");
+      }
     }
 
     private void ReturnBook()
     {
-      Console.WriteLine(new LibraryService().GetBooks(false));
+      Console.WriteLine(_Service.GetBooks(false));
+      Console.WriteLine("\nWhich book would you like to return?");
+      string selectionStr = Console.ReadLine();
+      if (int.TryParse(selectionStr, out int selection) && selection > 0)
+      {
+        Console.WriteLine(_Service.Return(selection - 1));
+      }
+      else
+      {
+        Console.WriteLine("Invalid Number: Selection must be a number greater than 0 and available");
+      }
     }
     private void DeleteBook()
     {
