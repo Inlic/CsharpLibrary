@@ -54,6 +54,28 @@ namespace CsharpLibrary.Services
       }
       return "\nInvalid Input, no such book.\n";
     }
+    internal string DeleteBook(string selectionStr)
+    {
+      var targetbook = Books.Find(b => b.Title == selectionStr);
+      if (targetbook == null)
+      {
+        return "\nNo such book";
+      }
+      else
+      {
+        Console.WriteLine($"Are you sure you wish to remove this book from the collection?  Type 'confirm' to remove.");
+        string confirm = Console.ReadLine();
+        if (confirm == "confirm")
+        {
+          Books.Remove(targetbook);
+          return "\nBook removed";
+        }
+        else
+        {
+          return "\nInvalid Input, book not removed.";
+        }
+      }
+    }
 
     internal void AddBook()
     {

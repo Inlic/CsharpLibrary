@@ -91,7 +91,10 @@ namespace CsharpLibrary.Controllers
     }
     private void DeleteBook()
     {
-      throw new NotImplementedException();
+      Console.WriteLine(_Service.GetBooks(true));
+      Console.WriteLine("\nType the title of the book you would like to remove from the collection.");
+      string selectionStr = Console.ReadLine();
+      Console.WriteLine(_Service.DeleteBook(selectionStr));
     }
 
 
