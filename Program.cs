@@ -1,12 +1,13 @@
 ﻿using System;
+using CsharpLibrary.Controllers;
 
 namespace CsharpLibrary
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      new LibraryController().Run();
     }
+  }
 }
