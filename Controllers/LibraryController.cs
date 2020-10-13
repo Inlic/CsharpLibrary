@@ -1,4 +1,5 @@
 using System;
+using CsharpLibrary.Services;
 
 namespace CsharpLibrary.Controllers
 {
@@ -29,12 +30,15 @@ namespace CsharpLibrary.Controllers
           ReadBook();
           break;
         case "checkout":
+          Console.Clear();
           CheckoutBook();
           break;
         case "return":
+          Console.Clear();
           ReturnBook();
           break;
         case "delete":
+          Console.Clear();
           DeleteBook();
           break;
         case "quit":
@@ -57,12 +61,12 @@ namespace CsharpLibrary.Controllers
     }
     private void CheckoutBook()
     {
-      throw new NotImplementedException();
+      Console.WriteLine(new LibraryService().GetBooks(true));
     }
 
     private void ReturnBook()
     {
-      throw new NotImplementedException();
+      Console.WriteLine(new LibraryService().GetBooks(false));
     }
     private void DeleteBook()
     {
