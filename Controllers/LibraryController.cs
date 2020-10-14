@@ -1,4 +1,5 @@
 using System;
+using CsharpLibrary.Models;
 using CsharpLibrary.Services;
 
 namespace CsharpLibrary.Controllers
@@ -54,7 +55,17 @@ namespace CsharpLibrary.Controllers
 
     private void AddBook()
     {
-      _Service.AddBook();
+      Console.Clear();
+      Console.WriteLine("\nTitle of the Book you wish to Add");
+      string title = Console.ReadLine();
+      Console.WriteLine("\nAuthor of the Book you wish to Add");
+      string author = Console.ReadLine();
+      Console.WriteLine("\nDescription for the Book you wish to Add");
+      string description = Console.ReadLine();
+      var newBook = new Book(title, author, description, true);
+      _Service.AddBook(newBook);
+      Console.Clear();
+      Console.WriteLine($"\nBook {title} Added");
     }
     private void ReadBook()
     {
